@@ -9,8 +9,52 @@ $(function(){
                     "type": "string"
                 },
                 {
-                    "name": "_age",
-                    "type": "uint256"
+                    "name": "_picture",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_nationality",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_dateofbirth",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_gender",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_dateissue",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_placeissue",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_height",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_birthplace",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_expireddate",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_pasprtype",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_countrycode",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "_nopassport",
+                    "type": "bytes32"
                 }
             ],
             "name": "setUser",
@@ -30,7 +74,51 @@ $(function(){
                 },
                 {
                     "name": "",
-                    "type": "uint256"
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
+                },
+                {
+                    "name": "",
+                    "type": "bytes32"
                 }
             ],
             "payable": false,
@@ -39,7 +127,7 @@ $(function(){
         }
     ];
 
-    var userAddress ='0xb5bAdE0520be5E2745009AEcCb5F82FcCb083bD7'
+    var userAddress ='0xe69e8EBbF94Bd637e169d6BFdfBe58bC3aD6fd75'
 
 if(typeof web3 !== 'undefined'){
     web3 = new Web3(web3.currentProvider);
@@ -57,13 +145,34 @@ var userFunction = UserContract.methods;
 
 userFunction.getUser().call(function(error,result) {
     if(!error){
-        $('#instructor').html(result[0] +  '( ' + result[1] + ' Years old )');
+       console.log(result);
     }
 });
 
-$('#button').click(function(){
 
-    userFunction.setUser($('#name').val(),$('#age').val()).send({from:'0x1B9f79Ef93CBaBf351f938534220BFCa5905751A'})
+
+
+
+
+$('#button').click(function(){
+    console.log(web3.utils.asciiToHex('shieda'))
+    userFunction.setUser(
+        "shahfiq",
+        web3.utils.asciiToHex('asdfav dfa '),
+        web3.utils.asciiToHex('shieasdfasdda'),
+        web3.utils.asciiToHex('shiedadsfasda'),
+        web3.utils.asciiToHex('shasdfieda'),
+        web3.utils.asciiToHex('shifasdfeda'),
+        web3.utils.asciiToHex('shidfasdfeda'),
+        web3.utils.asciiToHex('shasdfasieda'),
+        web3.utils.asciiToHex('shiwqerwe reda'),
+        web3.utils.asciiToHex('shi asdfeda'),
+        web3.utils.asciiToHex('shisadfaseda'),
+        web3.utils.asciiToHex('shidfsaeda'),
+        web3.utils.asciiToHex('shidfweeda'))
+        .send({from:'0xfcFb18B45dc237d49e1A62A7d7cf2F359781710c'})
+
+        console.log(web3.utils.hexToAscii('0x7368696564610000000000000000000000000000000000000000000000000000'))
 
 });
 
